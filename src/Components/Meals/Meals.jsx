@@ -1,8 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import Landingimage from "../Landingpage/Landingimage";
+import Popularcat from "../PopularCategory/Popularcategory";
+import Footer from "../Footer/Footer";
+import Form from "../Form/Form";
+import Navbar from "../Navbar/Navbar";
+import Choosefav from "../Choosefav/Choosefav";
 function Meals() {
+  const navigate = useNavigate();
   // async function renderMeals() {
 
   const { data, isLoading, error } = useQuery({
@@ -26,23 +32,39 @@ function Meals() {
 
   return (
     <>
-      <div class="latest" id="latestt">
+      <Navbar />
+      <Landingimage />
+      <Popularcat />
+      <Choosefav/>
 
-     <h1 id="recipe">All Meals</h1>
-      <div className="latestrecipe" id="latestrecipee">
-       
-        {data.meals.map((meals) => {
-          return (
-            <>
-              <div className="bestmeal" id="bestmeall">
-                <img src={meals.strMealThumb} />
-                <h6>{meals.strMeal}</h6>
-              </div>
-            </>
-          );
-        })}
+      <div className="latest" id="latestt">
+        <h1 id="recipe">All Meals</h1>
+        <div className="latestrecipe" id="latestrecipee">
+          {data.meals.map((meals) => {
+            return (
+              <>
+                {/* <div className="bestmeal" id="bestmeall">
+                <Link to="/details"><img src={meals.strMealThumb} /></Link>
+                <h5 id="popcatt">{meals.strMeal}</h5>
+              </div> */}
+
+                <div
+                  onClick={() => navigate("/details")}
+                  className="bestmeal"
+                  id="bestmeall"
+                >
+                  <img src={meals.strMealThumb} />
+
+                  <h5 id="popcatt">{meals.strMeal}</h5>
+                </div>
+              </>
+            );
+          })}
+        </div>
       </div>
-      </div>
+
+      <Form />
+      <Footer />
     </>
   );
   //   const url = "https://www.themealdb.com/api/json/v1/1/search.php?s="

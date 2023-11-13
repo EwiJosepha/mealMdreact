@@ -1,6 +1,7 @@
 function Navbar () {
   return (
     <>
+    <div className="sticky">
        <div className="icons">
       <div className="facebk">
         <i className="fa-brands fa-instagram"></i>
@@ -30,6 +31,7 @@ function Navbar () {
       <span>RecipePage</span>
       <span>Pages</span>
       <span>Buy</span>
+    </div>
     </div>
     </>
   )
