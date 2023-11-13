@@ -11,7 +11,6 @@ function Popularcat() {
       return res.data;
     },
   });
-  // const { meals } = data;
   console.log(data?.meals);
   if (isLoading) {
     return <h1>Loading...</h1>;
