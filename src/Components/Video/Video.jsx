@@ -5,10 +5,7 @@ import axios from "axios";
 function Video () {
   const [video, setVideo] = useState("")
 
-  const videokey = JSON.parse(localStorage.getItem("mealidd"));
-  useEffect(()=>{
-    const videokey = JSON.parse(localStorage.getItem("mealidd"));
-  },[])
+
   // const [video, setVideo]= useState('')
 
    const { data } = useQuery({
@@ -24,10 +21,20 @@ function Video () {
 
   console.log(data);
 
-   function displayvideo (vido) {
-    
+   function displayvideo (obj, vido) {
+    const videotrim = vido.split("v=")
+    const indexofsplitted = videotrim[1]
+  }
+  const videokey = JSON.parse(localStorage.getItem("mealidd"));
+  useEffect(()=>{
+    if(data){
+     const gottenvideo = displayvideo (data, strYoutube
+      )
+      setVideo(gottenvideo)
 
-   }
+    }
+    const videokey = JSON.parse(localStorage.getItem("mealidd"));
+  },[])
 
 
   return (
@@ -37,7 +44,7 @@ function Video () {
 
     <div className="backgr">
 
-      <iframe width="100%" height="480" src={data?.strYoutube}
+      <iframe width="100%" height="480" src={video}
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
