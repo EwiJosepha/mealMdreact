@@ -7,7 +7,11 @@ import Footer from "../Footer/Footer";
 import Form from "../Form/Form";
 import Navbar from "../Navbar/Navbar";
 import Choosefav from "../Choosefav/Choosefav";
+
+
 function Meals() {
+  // const {mealid} = useContext(Appcontextt)
+
   const navigate = useNavigate();
   const { data, isLoading, error } = useQuery({
     queryKey: ["meals"],
@@ -47,7 +51,10 @@ function Meals() {
               </div> */}
 
                 <div
-                  onClick={() => navigate("/details")}
+                  onClick={() =>{navigate("/details")
+                  JSON.stringify(localStorage.setItem("mealidd", meals.idMeal));
+                 console.log(meals.idMeal);
+               } }
                   className="bestmeal"
                   id="bestmeall"
                 >

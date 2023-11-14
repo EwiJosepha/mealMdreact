@@ -1,14 +1,43 @@
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function Video () {
+  const [video, setVideo] = useState("")
+
+  const videokey = JSON.parse(localStorage.getItem("mealidd"));
+  useEffect(()=>{
+    const videokey = JSON.parse(localStorage.getItem("mealidd"));
+  },[])
+  // const [video, setVideo]= useState('')
+
+   const { data } = useQuery({
+    queryKey: ["meallls"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videokey}`
+      );
+
+      return res.data.meals[0];
+    },
+  });
+
+  console.log(data);
+
+   function displayvideo (vido) {
+    
+
+   }
+
+
   return (
     <>
     <p id="tpp">One thing i learn in the Carnasei section of Broklyn NyY was how to cook a good italian meal here is
       aresume of the recipe i created afterhaving this dish in a restaurant. Enjoy!</p>
 
     <div className="backgr">
-      {/* <img src="https://images.unsplash.com/photo-1605807646983-377bc5a76493?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNha2VzfGVufDB8fDB8fHww" />  */}
 
-      <iframe width="100%" height="480" src="https://www.youtube.com/embed/xVWwDc5aNDM?si=tIdl2j96YxNPpaG0"
+      <iframe width="100%" height="480" src={data?.strYoutube}
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
