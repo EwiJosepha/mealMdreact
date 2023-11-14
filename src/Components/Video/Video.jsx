@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 function Video () {
-  const [video, setVideo] = useState("")
+  const [video, setVideo] = useState("video")
+  const videoNewkey = JSON.parse(localStorage.getItem("mealidd"));
 
 
   // const [video, setVideo]= useState('')
@@ -12,29 +13,41 @@ function Video () {
     queryKey: ["meallls"],
     queryFn: async () => {
       const res = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videokey}`
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videoNewkey}`
       );
 
-      return res.data.meals[0];
+      return res.data.meals
     },
   });
 
   console.log(data);
 
    function displayvideo (obj, vido) {
-    const videotrim = vido.split("v=")
-    const indexofsplitted = videotrim[1]
-  }
-  const videokey = JSON.parse(localStorage.getItem("mealidd"));
-  useEffect(()=>{
-    if(data){
-     const gottenvideo = displayvideo (data, strYoutube
-      )
-      setVideo(gottenvideo)
 
+    for (let value of Object.values(obj)) {
+      if (value === vido) {
+        vido.split("V=")
+        const indexofsplitted =vido[1]
+        // return indexofsplitted
+      }
     }
-    const videokey = JSON.parse(localStorage.getItem("mealidd"));
-  },[])
+   
+  }
+    useEffect(()=>{
+
+    if(data){
+     const gottenvideo = displayvideo (data, 
+      "https://www.youtube.com/watch?v=ub68OxEypaY")
+      setVideo(gottenvideo)
+   }
+
+  //  const videokey = JSON.parse(localStorage.getItem("mealidd"));
+  },[data])
+
+  // console.log(video);
+  console.log(data);
+
+  console.log(video);
 
 
   return (

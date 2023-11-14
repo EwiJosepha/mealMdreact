@@ -8,12 +8,12 @@ import { createContext, useState } from "react";
 export const Appcontextt = createContext();
 
 function App() {
-  const [mealid, setMealid] = useState("")
+  const [favor, setFavor]= useState('')
   const client = new QueryClient();
   return (
     <>
       <div id="app">
-        <Appcontextt.Provider value={{mealid ,setMealid}}>
+        <Appcontextt.Provider value={{favor ,setFavor}}>
           <QueryClientProvider client={client}>
             <Router>
               <Routes>

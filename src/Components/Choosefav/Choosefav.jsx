@@ -1,3 +1,8 @@
+import { useContext } from "react"
+import { Appcontextt } from "../../App"
+
+// const {setFavor} = useContext(Appcontextt)
+// const {favor} = useContext(Appcontextt)
 function Choosefav () {
   return(
     <>
@@ -7,7 +12,7 @@ function Choosefav () {
       <div class="top">
 
 <img
-  src="https://media.istockphoto.com/id/182924845/fr/photo/spaghetti-%C3%A0-la-bolognaise-avec-feuilles-de-basilic.webp?b=1&s=170667a&w=0&k=20&c=g60SDvd1ZYj4PScloP5L0LSowPAvE64ANLbFsych864=" />
+ src={favor?.strMealThumb} />
 
 <div className="stars">
   <i className="fa-solid fa-star"></i>

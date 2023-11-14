@@ -1,4 +1,37 @@
+import { useQuery } from "@tanstack/react-query"
+import { useContext } from "react";
+import { Appcontextt } from "../../App";
+import { useEffect, useState } from "react";
 function Favorites () {
+  // const {favor}= useContext(Appcontextt)
+  const {setFavor}= useContext(Appcontextt)
+  
+  // const [favor, setFavor]= useState('')
+  const geti = JSON.parse(localStorage.getItem("mealidd"));
+
+
+  const { data } = useQuery({
+    queryKey: ["meallls"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${geti}`
+      );
+
+      return res.data.meals
+    },
+  });
+ 
+  function setfavorites () {
+    setFavor(data)
+  }
+
+
+
+  useEffect(()=>{
+  const fav = setFavor(data)
+  },[])
+
+
   return (
     <>
        <div className="wrapper">
@@ -9,12 +42,12 @@ function Favorites () {
         </div>
         <div className="favorit" id="favor">
           <i className="fa-solid fa-arrow-up-from-bracket" id="gla"></i>
-          <i className="fa-solid fa-bookmark" id="glaa"></i>
+          <i className="fa-solid fa-bookmark" id="glaa" onClick={setfavorites}></i>
         </div>
       </div>
 
       <div className="strmeal"></div>
-      <h1 id="berry"></h1> 
+      <h1 id="berry">{data?.strArea}</h1> 
 
 
 

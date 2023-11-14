@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 // import { Appcontextt } from "../../App"
 // import Meals from "../Meals/Meals";
+import Favorites from "../Favorites/Iconfavorites";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -47,16 +48,17 @@ function Instruction() {
 
   return (
     <>
+  
       <div className="containersflex">
         <div className="twowrapper">
           <div className="ingredients">
             <h4 id="ingredients">Ingredients</h4>
             <div className="ul2">
-              <h5>{data?.strArea}</h5>
+              <h5>{data?.strMeal}</h5>
               <ul type="circle" id="display-ingredients">
                 {/* <li>{data?.strIngredient1}</li> */}
                 {ingredients?.map((ingr) => (
-                  <li>{ingr}</li>
+                  <li key={ingr}>{ingr}</li>
                 ))}
               </ul>
             </div>
