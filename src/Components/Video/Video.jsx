@@ -51,10 +51,10 @@ function Video () {
 
     <div className="backgr">
 
-      <iframe width="100%" height="480" 
-        title="YouTube video player" frameBorder="0"
+      <iframe width="100%" height="480"
+        title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen></iframe>
+        allowfullscreen></iframe>
     </div>
 
     <div className="prep">

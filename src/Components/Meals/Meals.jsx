@@ -45,10 +45,6 @@ function Meals() {
           {data.meals.map((meals) => {
             return (
               <>
-                {/* <div className="bestmeal" id="bestmeall">
-                <Link to="/details"><img src={meals.strMealThumb} /></Link>
-                <h5 id="popcatt">{meals.strMeal}</h5>
-              </div> */}
 
                 <div
                   onClick={() =>{navigate("/details")

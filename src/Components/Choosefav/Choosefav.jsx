@@ -6,13 +6,13 @@ import { Appcontextt } from "../../App"
 function Choosefav () {
   return(
     <>
-     <div class="favorites">
+     <div className="favorites">
       <h1 id="super">Super Delicious</h1>
-      <div class="carousel">
-      <div class="top">
+      <div className="carousel">
+      <div className="top">
 
-<img
- src/>
+{/* <img
+ src/> */}
 
 <div className="stars">
   <i className="fa-solid fa-star"></i>

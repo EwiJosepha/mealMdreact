@@ -23,17 +23,6 @@ function Favorites () {
   });
 
   console.log(data);
- 
-  // function setfavorites () {
-  //   setFavor(data)
-  // }
-
-
-
-  // useEffect(()=>{
-  // const fav = setfavorites()
-  // },[])
-
 
   return (
     <>
@@ -51,8 +40,9 @@ function Favorites () {
         </div>
       </div>
 
-      <div className="strmeal"></div>
+      <div className="strmeal">
       <h1 id="berry">{data?.strArea}</h1> 
+      </div>
 
 
 
