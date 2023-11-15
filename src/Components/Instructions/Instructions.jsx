@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import Favorites from "../Favorites/Iconfavorites";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Similar from "../Similarities/Similar";

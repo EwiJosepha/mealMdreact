@@ -12,7 +12,7 @@ function Favorites () {
 
 
   const { data } = useQuery({
-    queryKey: ["meallls"],
+    queryKey: ["mealls"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${geti}`
