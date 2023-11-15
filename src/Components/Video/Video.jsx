@@ -3,14 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 function Video () {
-  const [video, setVideo] = useState("video")
+  const [video, setVideo] = useState("")
   const videoNewkey = JSON.parse(localStorage.getItem("mealidd"));
 
-
-  // const [video, setVideo]= useState('')
-
    const { data } = useQuery({
-    queryKey: ["meallls"],
+    queryKey: ["mealls"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videoNewkey}`
@@ -28,7 +25,6 @@ function Video () {
       if (value === vido) {
         vido.split("V=")
         const indexofsplitted =vido[1]
-        // return indexofsplitted
       }
     }
    
@@ -41,10 +37,8 @@ function Video () {
       setVideo(gottenvideo)
    }
 
-  //  const videokey = JSON.parse(localStorage.getItem("mealidd"));
   },[data])
 
-  // console.log(video);
   console.log(data);
 
   console.log(video);
@@ -57,10 +51,10 @@ function Video () {
 
     <div className="backgr">
 
-      <iframe width="100%" height="480" src={video}
-        title="YouTube video player" frameborder="0"
+      <iframe width="100%" height="480" 
+        title="YouTube video player" frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+        allowFullScreen></iframe>
     </div>
 
     <div className="prep">

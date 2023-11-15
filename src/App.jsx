@@ -8,7 +8,7 @@ import { createContext, useState } from "react";
 export const Appcontextt = createContext();
 
 function App() {
-  const [favor, setFavor]= useState('')
+  const [favor, setFavor]= useState('favorites')
   const client = new QueryClient();
   return (
     <>

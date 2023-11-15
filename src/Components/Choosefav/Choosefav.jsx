@@ -12,7 +12,7 @@ function Choosefav () {
       <div class="top">
 
 <img
- src={favor?.strMealThumb} />
+ src/>
 
 <div className="stars">
   <i className="fa-solid fa-star"></i>

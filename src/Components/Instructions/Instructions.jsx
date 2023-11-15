@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-// import { Appcontextt } from "../../App"
-// import Meals from "../Meals/Meals";
 import Favorites from "../Favorites/Iconfavorites";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Similar from "../Similarities/Similar";
 
 function Instruction() {
   let currentmeal;
@@ -18,11 +17,9 @@ function Instruction() {
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getid}`
       );
 
-      return res.data.meals[0];
+      return res.data.meals
     },
   });
-
-  //
 
   const createArrayFromObjectKeys = (obj, target_key) => {
     const target_legnth = target_key.length;
@@ -54,11 +51,11 @@ function Instruction() {
           <div className="ingredients">
             <h4 id="ingredients">Ingredients</h4>
             <div className="ul2">
-              <h5>{data?.strMeal}</h5>
+              <h5></h5>
               <ul type="circle" id="display-ingredients">
                 {/* <li>{data?.strIngredient1}</li> */}
-                {ingredients?.map((ingr) => (
-                  <li key={ingr}>{ingr}</li>
+                {ingredients?.map((ingr,index) => (
+                  <li key={index}>{ingr}</li>
                 ))}
               </ul>
             </div>
@@ -102,24 +99,12 @@ function Instruction() {
               <span>12kg</span>
             </div>
           </div>
-          <div className="fimages" id="cardd">
-            <div className="envelop">
-              <p id="freshh">Fresh Recipes</p>
-              <div className="card">
-                <div className="divcard"></div>
-                <div className="text">
-                  <div className="sta"></div>
-                  <p id="caramel">Caramel Strawberry</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <Similar />
+          <div className="formm"></div>
 
-          <div class="formm"></div>
-
-          <div class="alreadymade">
+          <div className="alreadymade">
             <h3 id="txtcenter">Already made this ?</h3>
-            <div class="btnmade">
+            <div className="btnmade">
               <button id="already">Share Your Feedback</button>
               <div id="orangg"></div>
             </div>

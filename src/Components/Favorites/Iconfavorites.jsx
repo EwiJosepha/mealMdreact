@@ -4,7 +4,8 @@ import { Appcontextt } from "../../App";
 import { useEffect, useState } from "react";
 function Favorites () {
   // const {favor}= useContext(Appcontextt)
-  const {setFavor}= useContext(Appcontextt)
+  // const {setFavor}= useContext(Appcontextt)
+  // console.log({favor});
   
   // const [favor, setFavor]= useState('')
   const geti = JSON.parse(localStorage.getItem("mealidd"));
@@ -20,16 +21,18 @@ function Favorites () {
       return res.data.meals
     },
   });
+
+  console.log(data);
  
-  function setfavorites () {
-    setFavor(data)
-  }
+  // function setfavorites () {
+  //   setFavor(data)
+  // }
 
 
 
-  useEffect(()=>{
-  const fav = setFavor(data)
-  },[])
+  // useEffect(()=>{
+  // const fav = setfavorites()
+  // },[])
 
 
   return (
@@ -42,7 +45,9 @@ function Favorites () {
         </div>
         <div className="favorit" id="favor">
           <i className="fa-solid fa-arrow-up-from-bracket" id="gla"></i>
-          <i className="fa-solid fa-bookmark" id="glaa" onClick={setfavorites}></i>
+          <i className="fa-solid fa-bookmark" id="glaa" onClick={()=>{
+              const get = JSON.stringify(localStorage.setItem("similarmeals", data));
+          }}></i>
         </div>
       </div>
 
