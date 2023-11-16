@@ -63,7 +63,9 @@ function Instruction() {
 
           <h4 id="instructions">Instructions</h4>
           <div className="instruc" id="instrucc">
-            <p>{data?.strInstructions}</p>
+           {data?.map((instrutions)=>{
+              return <p>{instrutions.strInstructions}</p>
+            })}
           </div>
         </div>
 

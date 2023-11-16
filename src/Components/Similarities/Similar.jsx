@@ -17,17 +17,32 @@ function Similar () {
   });
 
   useEffect(()=>{
-    // const similarmeals =  relatedcategory(data)
     // console.log(similarmeals);
 
   },[])
 
-
-
-  console.log(data);
+  // const similarmeals =  relatedcategory(data)
+ console.log(data);
   return (
     <>
+         {data?.map((item)=>{ 
+    
+    return <div className="divcard">
+    <img src={item.strMealThumb} />
+        
+    <div className="text">
+          <div className="sta">
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star"></i>
+        </div>
+    <p id="caramel">{item.strMeal}</p>
 
+  </div>
+  </div>
+  } )}
     </>
   )
 }

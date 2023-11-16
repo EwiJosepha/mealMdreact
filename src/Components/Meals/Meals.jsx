@@ -48,7 +48,7 @@ function Meals() {
 
                 <div
                   onClick={() =>{navigate("/details")
-                  JSON.stringify(localStorage.setItem("mealidd", data));
+                  JSON.stringify(localStorage.setItem("mealidd", meals.idMeal));
                  console.log(meals.idMeal);
                } }
                   className="bestmeal"

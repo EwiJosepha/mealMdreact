@@ -16,13 +16,6 @@ function Favorites() {
       return res.data.meals;
     },
   });
-
-  // useEffect(() => {
-  //   if (data) {
-  
-  //   }
-  // }, [data]);
-
   console.log(data, geti);
 
   return (
@@ -37,18 +30,14 @@ function Favorites() {
             <i className="fa-solid fa-arrow-up-from-bracket" id="gla"></i>
             <i
               className="fa-solid fa-bookmark"
-              id="glaa"
-              // onClick={() => {
-              //   const get = JSON.stringify(
-              //     localStorage.setItem("similarmeals", data)
-              //   );
-              // }}
-            ></i>
+              id="glaa"></i>
           </div>
         </div>
 
         <div className="strmeal">
-          <h1 id="berry">{data?.strMeal}</h1>
+         {data?.map((mealitem)=>{
+            return <h1 id="berry">{mealitem.strMeal}</h1> 
+          })}
         </div>
 
         <div className="flexstar">
