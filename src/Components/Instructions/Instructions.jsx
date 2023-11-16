@@ -8,7 +8,6 @@ function Instruction() {
   const getid = JSON.parse(localStorage.getItem("mealidd"));
   const [ingredients, setIngredients] = useState([]);
 
-
   const { data } = useQuery({
     queryKey: ["mealls"],
     queryFn: async () => {
@@ -16,7 +15,7 @@ function Instruction() {
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getid}`
       );
 
-      return res.data.meals
+      return res.data.meals;
     },
   });
 
@@ -25,7 +24,10 @@ function Instruction() {
     const array_items = [];
 
     for (let key of Object.keys(obj)) {
-      if (key.slice(0, target_legnth) === target_key && obj[key].trim() !== "") {
+      if (
+        key.slice(0, target_legnth) === target_key &&
+        obj[key].trim() !== ""
+      ) {
         array_items.push(obj[key]);
       }
     }
@@ -35,16 +37,16 @@ function Instruction() {
 
   useEffect(() => {
     if (data) {
-      const arrStrIngds = createArrayFromObjectKeys(data, "strIngredient");
+      const res = data[0];
+      const arrStrIngds = createArrayFromObjectKeys(res, "strIngredient");
       setIngredients(arrStrIngds);
     }
 
-    console.log(data);
+    console.log({ data });
   }, [data]);
 
   return (
     <>
-  
       <div className="containersflex">
         <div className="twowrapper">
           <div className="ingredients">
@@ -52,8 +54,7 @@ function Instruction() {
             <div className="ul2">
               <h5></h5>
               <ul type="circle" id="display-ingredients">
-                {/* <li>{data?.strIngredient1}</li> */}
-                {ingredients?.map((ingr,index) => (
+                {ingredients?.map((ingr, index) => (
                   <li key={index}>{ingr}</li>
                 ))}
               </ul>
@@ -98,7 +99,7 @@ function Instruction() {
               <span>12kg</span>
             </div>
           </div>
-            <Similar />
+          <Similar />
           <div className="formm"></div>
 
           <div className="alreadymade">

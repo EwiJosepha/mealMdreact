@@ -2,78 +2,69 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-function Video () {
-  const [video, setVideo] = useState("")
+function Video() {
+  const [video, setVideo] = useState("");
   const videoNewkey = JSON.parse(localStorage.getItem("mealidd"));
 
-   const { data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["mealls"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videoNewkey}`
       );
 
-      return res.data.meals
+      return res.data.meals[0];
     },
   });
 
-  console.log(data);
-
-   function displayvideo (obj, vido) {
-
-    for (let value of Object.values(obj)) {
-      if (value === vido) {
-        vido.split("V=")
-        const indexofsplitted =vido[1]
-      }
-    }
-   
+  function displayvideo(obj) {
+    return obj.strYoutube.split("v=").pop();
   }
-    useEffect(()=>{
 
-    if(data){
-     const gottenvideo = displayvideo (data, 
-      "https://www.youtube.com/watch?v=ub68OxEypaY")
-      setVideo(gottenvideo)
-   }
-
-  },[data])
-
-  console.log(data);
-
-  console.log(video);
-
+  useEffect(() => {
+    if (data) {
+      const res = data[0];
+      const gottenvideo = displayvideo(res);
+      setVideo(gottenvideo);
+    }
+  }, [data]);
 
   return (
     <>
-    <p id="tpp">One thing i learn in the Carnasei section of Broklyn NyY was how to cook a good italian meal here is
-      aresume of the recipe i created afterhaving this dish in a restaurant. Enjoy!</p>
+      <p id="tpp">
+        One thing i learn in the Carnasei section of Broklyn NyY was how to cook
+        a good italian meal here is aresume of the recipe i created afterhaving
+        this dish in a restaurant. Enjoy!
+      </p>
 
-    <div className="backgr">
-
-      <iframe width="100%" height="480"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-
-    <div className="prep">
-      <div className="time">
-        <p id="prep">Prep-Time</p>
-        <h6 id="time">15</h6>
+      <div className="backgr">
+        <iframe
+          src={`https://www.youtube.com/embed/${video}`}
+          width="100%"
+          height="480"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
       </div>
-      <div className="time">
-        <p id="prep">Prep-Time</p>
-        <h6 id="time">15</h6>
-      </div>
-      <div className="time">
-        <p id="prep">Servings</p>
-        <h6 id="time">15</h6>
-      </div>
-    </div>
 
+      <div className="prep">
+        <div className="time">
+          <p id="prep">Prep-Time</p>
+          <h6 id="time">15</h6>
+        </div>
+        <div className="time">
+          <p id="prep">Prep-Time</p>
+          <h6 id="time">15</h6>
+        </div>
+        <div className="time">
+          <p id="prep">Servings</p>
+          <h6 id="time">15</h6>
+        </div>
+      </div>
     </>
-  )
-} 
+  );
+}
 
-export default Video
+export default Video;
