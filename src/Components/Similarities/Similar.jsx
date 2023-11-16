@@ -7,7 +7,7 @@ function Similar () {
   const getsimilar= JSON.parse(localStorage.getItem("mealidd"));
   
   const { data } = useQuery({
-    queryKey: ["mealls"],
+    queryKey: ["similar"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getsimilar}`

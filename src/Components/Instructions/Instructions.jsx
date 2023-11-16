@@ -9,7 +9,7 @@ function Instruction() {
   const [ingredients, setIngredients] = useState([]);
 
   const { data } = useQuery({
-    queryKey: ["mealls"],
+    queryKey: ["instuandingrs"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getid}`

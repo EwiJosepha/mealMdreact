@@ -7,7 +7,7 @@ function Favorites() {
   const geti = JSON.parse(localStorage.getItem("mealidd"));
 
   const { data } = useQuery({
-    queryKey: ["mealls"],
+    queryKey: ["mealstr"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${geti}`
@@ -17,12 +17,11 @@ function Favorites() {
     },
   });
 
-  useEffect(() => {
-    if (data) {
-      data[0];
+  // useEffect(() => {
+  //   if (data) {
   
-    }
-  }, [data]);
+  //   }
+  // }, [data]);
 
   console.log(data, geti);
 
@@ -49,7 +48,7 @@ function Favorites() {
         </div>
 
         <div className="strmeal">
-          <h1 id="berry">{data?.strMeal}meall</h1>
+          <h1 id="berry">{data?.strMeal}</h1>
         </div>
 
         <div className="flexstar">

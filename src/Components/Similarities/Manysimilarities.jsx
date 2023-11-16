@@ -3,7 +3,7 @@ import axios from "axios";
 
 export function relatedcategory(actualll) {
 const { data } = useQuery({
-    queryKey: ["mealls"],
+    queryKey: ["manycategorys"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${actualll}`

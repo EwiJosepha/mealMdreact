@@ -14,7 +14,7 @@ function Meals() {
 
   const navigate = useNavigate();
   const { data, isLoading, error } = useQuery({
-    queryKey: ["meals"],
+    queryKey: ["mealss"],
     queryFn: async () => {
       const res = await axios.get(
         "https://www.themealdb.com/api/json/v1/1/search.php?s="
@@ -48,7 +48,7 @@ function Meals() {
 
                 <div
                   onClick={() =>{navigate("/details")
-                  JSON.stringify(localStorage.setItem("mealidd", meals.idMeal));
+                  JSON.stringify(localStorage.setItem("mealidd", data));
                  console.log(meals.idMeal);
                } }
                   className="bestmeal"

@@ -7,13 +7,13 @@ function Video() {
   const videoNewkey = JSON.parse(localStorage.getItem("mealidd"));
 
   const { data } = useQuery({
-    queryKey: ["mealls"],
+    queryKey: ["videos"],
     queryFn: async () => {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${videoNewkey}`
       );
 
-      return res.data.meals[0];
+      return res.data.meals
     },
   });
 
