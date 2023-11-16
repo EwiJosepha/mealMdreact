@@ -1,15 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
-export async function relatedcategory({actualll}) {
-    const catapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${actualll}`;
-    const res = await fetch(catapi);
-    const dataa = await res.json();
-    console.log(dataa);
-    const dat = dataa.meals.slice(0, 4);
-    console.log(dat);
+export function relatedcategory(actualll) {
+const { data } = useQuery({
+    queryKey: ["mealls"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${actualll}`
+      );
+
+      return res.data.meals
+    },
+  });
+  
 
     return (
      <>
-        {dat?.map((item)=>{ 
+        {data?.map((item)=>{ 
     
     <div className="divcard">
     <img src={item.strMealThumb} />
@@ -26,9 +33,10 @@ export async function relatedcategory({actualll}) {
 
   </div>
   </div>
-    console.log(dat);
   } )};
   </>
     )
     
 }
+
+// export default relatedcategory

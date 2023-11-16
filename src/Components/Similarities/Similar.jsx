@@ -12,15 +12,16 @@ function Similar () {
       const res = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getsimilar}`
       );
-
       return res.data.meals
     },
   });
 
   useEffect(()=>{
-    const relatedcategory = relatedcategory(data.strCategory
-      )
+    // const similarmeals =  relatedcategory(data)
+    // console.log(similarmeals);
+
   },[])
+
 
 
   console.log(data);

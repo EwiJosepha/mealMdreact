@@ -1,15 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
-import { Appcontextt } from "../../App";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
 function Favorites() {
-  // const {favor}= useContext(Appcontextt)
-  // const {setFavor}= useContext(Appcontextt)
-  // console.log({favor});
 
-  // const [favor, setFavor]= useState('')
   const geti = JSON.parse(localStorage.getItem("mealidd"));
 
   const { data } = useQuery({
@@ -23,7 +17,14 @@ function Favorites() {
     },
   });
 
-  // console.log(data, geti);
+  useEffect(() => {
+    if (data) {
+      data[0];
+  
+    }
+  }, [data]);
+
+  console.log(data, geti);
 
   return (
     <>
@@ -38,17 +39,17 @@ function Favorites() {
             <i
               className="fa-solid fa-bookmark"
               id="glaa"
-              onClick={() => {
-                const get = JSON.stringify(
-                  localStorage.setItem("similarmeals", data)
-                );
-              }}
+              // onClick={() => {
+              //   const get = JSON.stringify(
+              //     localStorage.setItem("similarmeals", data)
+              //   );
+              // }}
             ></i>
           </div>
         </div>
 
         <div className="strmeal">
-          <h1 id="berry">{data?.strArea}</h1>
+          <h1 id="berry">{data?.strMeal}meall</h1>
         </div>
 
         <div className="flexstar">
