@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Similar from "../Similarities/Similar";
+import "../Instructions/Instrutions.css"
 
 function Instruction() {
   let currentmeal;
@@ -69,38 +70,40 @@ function Instruction() {
           </div>
         </div>
 
-        <div className="fourimage">
-          <div className="nutrition">
-            <h4 id="nutfact">Nutrition Facts</h4>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-            <div className="calo" id="radiusb">
-              <span>Calories</span>
-              <span>12kg</span>
-            </div>
-          </div>
+        <table>
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 3, Cell 1</td>
+                <td>Row 3, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 4, Cell 1</td>
+                <td>Row 4, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 5, Cell 1</td>
+                <td>Row 5, Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 6, Cell 1</td>
+                <td>Row 6, Cell 2</td>
+            </tr>
+        </tbody>
+    </table>
           <Similar />
           <div className="formm"></div>
 
@@ -112,7 +115,7 @@ function Instruction() {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

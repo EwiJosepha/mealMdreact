@@ -14,7 +14,6 @@ function Detailsnav () {
             <span id="spann">Buy</span>
           </div>
 
-          <i className="fa-solid fa-magnifying-glass" id="gla"></i>
           <img src="src/assets/images/media.png" id="med" />
         </div>
     

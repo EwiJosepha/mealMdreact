@@ -9,10 +9,13 @@ function Similar () {
   const { data } = useQuery({
     queryKey: ["similar"],
     queryFn: async () => {
-      const res = await axios.get(
+      const meall = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${getsimilar}`
-      );
-      return res.data.meals
+      ).then((response)=>response.data)
+      const mealCategory = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${meall.meals[0].strCategory}`)
+      return {
+        meall, mealCategory: mealCategory.data
+      }
     },
   });
 
@@ -24,8 +27,9 @@ function Similar () {
   // const similarmeals =  relatedcategory(data)
  console.log(data);
   return (
-    <>
-         {data?.map((item)=>{ 
+    <>  <div className="embodysimilar">
+    <h2>Similar Meals</h2>
+         {data?.mealCategory.meals.slice(0,4).map((item)=>{ 
     
     return <div className="divcard">
     <img src={item.strMealThumb} />
@@ -43,6 +47,7 @@ function Similar () {
   </div>
   </div>
   } )}
+  </div>
     </>
   )
 }
