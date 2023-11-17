@@ -2,11 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import axios from "axios";
 
+export const geti = JSON.parse(localStorage.getItem("mealidd"));
+
+
 function Favorites() {
-
-  const geti = JSON.parse(localStorage.getItem("mealidd"));
-
-  const { data } = useQuery({
+  
+ const { data } = useQuery({
     queryKey: ["mealstr"],
     queryFn: async () => {
       const res = await axios.get(
@@ -30,7 +31,9 @@ function Favorites() {
             <i className="fa-solid fa-arrow-up-from-bracket" id="gla"></i>
             <i
               className="fa-solid fa-bookmark"
-              id="glaa"></i>
+              id="glaa" onClick={()=>{
+                JSON.stringify(localStorage.setItem('newid', geti))
+              }}></i>
           </div>
         </div>
 

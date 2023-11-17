@@ -1,9 +1,25 @@
 import { useContext } from "react"
-import { Appcontextt } from "../../App"
+import { useQuery } from "@tanstack/react-query";
+import { geti } from "../Favorites/Iconfavorites"
+import axios from "axios";
 
 // const {setFavor} = useContext(Appcontextt)
 // const {favor} = useContext(Appcontextt)
 function Choosefav () {
+  const favoriteszz = geti
+  const arrafav = []
+  const { data } = useQuery({
+    queryKey: ["mealstr"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${favoriteszz}`
+      );
+
+      return res.data.meals;
+    },
+  });
+  console.log(data, favoriteszz);
+
   return(
     <>
      <div className="favorites">
@@ -11,8 +27,9 @@ function Choosefav () {
       <div className="carousel">
       <div className="top">
 
-{/* <img
- src/> */}
+{data?.map((favo)=>{
+  return <img src={favo.strMealThumb}/>
+})}
 
 <div className="stars">
   <i className="fa-solid fa-star"></i>
