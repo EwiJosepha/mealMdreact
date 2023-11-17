@@ -50,10 +50,9 @@ function Instruction() {
     <>
       <div className="containersflex">
         <div className="twowrapper">
-          <div className="ingredients">
-            <h4 id="ingredients">Ingredients</h4>
-            <div className="ul2">
-              <h5></h5>
+        <h4 id="ingredients">Ingredients</h4>
+          <div className="ul2">
+            <div className="container">
               <ul type="circle" id="display-ingredients">
                 {ingredients?.map((ingr, index) => (
                   <li key={index}>{ingr}</li>
@@ -71,15 +70,22 @@ function Instruction() {
         </div>
 
         <div className="fourimage">
+        <h4 id="measu"><b>Measurements</b></h4>
         <div class="card">
+        <div class="container">
+      </div>
           {data?.map((measurements)=>{
-            return <p>{measurements.strMeasurements}</p>
+            return(
+              <>
+              <p id="measur">{measurements.strMeasure1}</p>
+              <p id="measur">{measurements.strMeasure2}</p>
+              <p id="measur">{measurements.strMeasure3}</p>
+              <p id="measur">{measurements.strMeasure4}</p>
+              <p id="measur">{measurements.strMeasure5}</p>
+              </>
+            ) 
           })}
-      <div class="container">
-    <h4><b>John Doe</b></h4>
-    <p>Architect & Engineer</p>
-  </div>
-</div>
+          </div>
           <Similar />
           <div className="formm"></div>
 

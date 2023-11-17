@@ -33,7 +33,7 @@ const { data } = useQuery({
           <i className="fa-solid fa-star"></i>
           <i className="fa-solid fa-star"></i>
         </div>
-    <p id="caramel">{item.strMeal}</p>
+    <p id="carame">{item.strMeal}</p>
 
   </div>
   </div>
