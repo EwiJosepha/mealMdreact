@@ -16,9 +16,13 @@ const { data } = useQuery({
 
     return (
      <>
-        {data?.map((item)=>{ 
+       {data?.map((item)=>{ 
     
-    return <div className="divcard">
+   
+
+    return<div className="wrappercards">
+ 
+    <div className="divcard">
     <img src={item.strMealThumb} />
         
     <div className="text">
@@ -33,6 +37,8 @@ const { data } = useQuery({
 
   </div>
   </div>
+    </div> 
+
   } )};
   </>
     )

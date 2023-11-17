@@ -56,7 +56,10 @@ function Meals() {
                 >
                   <img src={meals.strMealThumb} />
 
+                  <div className="area">
                   <h5 id="popcatt">{meals.strMeal}</h5>
+                    <h5 id="area">{meals.strArea}</h5>
+                  </div>
                 </div>
               </>
             );

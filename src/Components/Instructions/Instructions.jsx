@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Similar from "../Similarities/Similar";
-import "../Instructions/Instrutions.css"
+import "./Instruction.css"
 
 function Instruction() {
   let currentmeal;
@@ -70,40 +70,16 @@ function Instruction() {
           </div>
         </div>
 
-        <table>
-        <thead>
-            <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Row 1, Cell 1</td>
-                <td>Row 1, Cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 2, Cell 1</td>
-                <td>Row 2, Cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 3, Cell 1</td>
-                <td>Row 3, Cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 4, Cell 1</td>
-                <td>Row 4, Cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 5, Cell 1</td>
-                <td>Row 5, Cell 2</td>
-            </tr>
-            <tr>
-                <td>Row 6, Cell 1</td>
-                <td>Row 6, Cell 2</td>
-            </tr>
-        </tbody>
-    </table>
+        <div className="fourimage">
+        <div class="card">
+          {data?.map((measurements)=>{
+            return <p>{measurements.strMeasurements}</p>
+          })}
+      <div class="container">
+    <h4><b>John Doe</b></h4>
+    <p>Architect & Engineer</p>
+  </div>
+</div>
           <Similar />
           <div className="formm"></div>
 
@@ -115,7 +91,7 @@ function Instruction() {
             </div>
           </div>
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 }
