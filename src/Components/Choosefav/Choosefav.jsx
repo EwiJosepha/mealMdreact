@@ -15,13 +15,15 @@ function Choosefav() {
 
   return (
     <>
+       {favorites?.map((favo) => ( 
       <div className="favorites">
         <h1 id="super">Super Delicious</h1>
         <div className="carousel">
           <div className="top">
-            {favorites?.map((favo) => {
-              return <img src={favo.strMealThumb} />;
-            })}
+            
+         
+              <img src={favo.strMealThumb} />;
+          
 
             <div className="stars">
               <i className="fa-solid fa-star"></i>
@@ -47,6 +49,7 @@ function Choosefav() {
           </div>
         </div>
       </div>
+        ))}
     </>
   );
 }
