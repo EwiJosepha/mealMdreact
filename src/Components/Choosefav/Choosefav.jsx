@@ -15,10 +15,11 @@ function Choosefav() {
 
   return (
     <>
-       {favorites?.map((favo) => ( 
+        
       <div className="favorites">
         <h1 id="super">Super Delicious</h1>
         <div className="carousel">
+        {favorites?.map((favo) => (
           <div className="top">
             
          
@@ -47,9 +48,10 @@ function Choosefav() {
               <i className="fa-regular fa-calendar-minus">456</i>
             </div>
           </div>
+            ))}
         </div>
       </div>
-        ))}
+      
     </>
   );
 }
