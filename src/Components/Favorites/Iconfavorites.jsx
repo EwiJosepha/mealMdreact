@@ -2,12 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import axios from "axios";
 
-export const geti = JSON.parse(localStorage.getItem("mealidd"));
-
-
 function Favorites() {
-  
- const { data } = useQuery({
+  const geti = JSON.parse(localStorage.getItem("mealidd"));
+
+  const { data } = useQuery({
     queryKey: ["mealstr"],
     queryFn: async () => {
       const res = await axios.get(
@@ -17,6 +15,25 @@ function Favorites() {
       return res.data.meals;
     },
   });
+
+  const saveToStorage = (update) => {
+    localStorage.setItem("favorites", JSON.stringify(update));
+  };
+
+  const toggleFavorites = () => {
+    const favs = JSON.parse(localStorage.getItem("favorites")) || [];
+    const id = data[0].idMeal;
+
+    const prev_exists = favs.find((meal) => meal.idMeal === id);
+
+    if (prev_exists) {
+      const update = favs.filter((meal) => meal.idMeal !== id); // removing meal from localstorage
+      saveToStorage(update); // saving updates
+    } else {
+      const update = [...favs, data[0]];
+      saveToStorage(update);
+    }
+  };
   console.log(data, geti);
 
   return (
@@ -31,16 +48,14 @@ function Favorites() {
             <i className="fa-solid fa-arrow-up-from-bracket" id="gla"></i>
             <i
               className="fa-solid fa-bookmark"
-              id="glaa" onClick={()=>{
-                JSON.stringify(localStorage.setItem('newid', geti))
-              }}></i>
+              id="glaa"
+              onClick={toggleFavorites}
+            ></i>
           </div>
         </div>
 
         <div className="strmeal">
-         {data?.map((mealitem)=>{
-            return <h1 id="berry">{mealitem.strMeal}</h1> 
-          })}
+          {data && <h1 id="berry">{data[0].strMeal}</h1>}
         </div>
 
         <div className="flexstar">
