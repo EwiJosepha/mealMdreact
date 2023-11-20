@@ -23,7 +23,7 @@ function Choosefav() {
           <div className="top">
             
          
-              <img src={favo.strMealThumb} />;
+              <img src={favo.strMealThumb} />
           
 
             <div className="stars">

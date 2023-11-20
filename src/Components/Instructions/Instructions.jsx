@@ -8,6 +8,7 @@ function Instruction() {
   let currentmeal;
   const getid = JSON.parse(localStorage.getItem("mealidd"));
   const [ingredients, setIngredients] = useState([]);
+  const [measurements, setMeasurements] = useState([])
 
   const { data } = useQuery({
     queryKey: ["instuandingrs"],
@@ -40,11 +41,16 @@ function Instruction() {
     if (data) {
       const res = data[0];
       const arrStrIngds = createArrayFromObjectKeys(res, "strIngredient");
+      const measure = createArrayFromObjectKeys(res,"strMeasure")
       setIngredients(arrStrIngds);
+      setMeasurements(measure)
     }
 
     console.log({ data });
   }, [data]);
+
+
+  console.log(measurements);
 
   return (
     <>
@@ -74,14 +80,10 @@ function Instruction() {
         <div class="card">
         <div class="container">
       </div>
-          {data?.map((measurements)=>{
+          {measurements?.map((measurements)=>{
             return(
               <>
-              <p id="measur">{measurements.strMeasure1}</p>
-              <p id="measur">{measurements.strMeasure2}</p>
-              <p id="measur">{measurements.strMeasure3}</p>
-              <p id="measur">{measurements.strMeasure4}</p>
-              <p id="measur">{measurements.strMeasure5}</p>
+              <p id="measur">{measurements}</p>
               </>
             ) 
           })}
