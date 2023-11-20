@@ -27,7 +27,7 @@ function Popularcat() {
         <div className="popularcategory" id="popularcategoryy">
           <h1 id="popcat">Popular Category</h1>
           <div className="categoryimages" id="categoryimagess">
-          {data?.categories.map((meal) => (
+          {data?.categories.slice(0, 12).map((meal) => (
             <div key={meal.idMeal} className="imagetitle">
               <img src={meal.strCategoryThumb} alt="popular Meals" />
 

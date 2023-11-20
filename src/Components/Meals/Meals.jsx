@@ -42,7 +42,7 @@ function Meals() {
       <div className="latest" id="latestt">
         <h1 id="recipe">All Meals</h1>
         <div className="latestrecipe" id="latestrecipee">
-          {data.meals.map((meals) => {
+          {data.meals.slice(0,24).map((meals) => {
             return (
               <>
 
