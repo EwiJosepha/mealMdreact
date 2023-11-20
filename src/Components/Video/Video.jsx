@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import "./video.css"
 
 function Video() {
   const [video, setVideo] = useState("");
@@ -46,7 +47,7 @@ function Video() {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-        ></iframe>
+        id="videoframe"></iframe>
       </div>
 
       <div className="prep">
