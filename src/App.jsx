@@ -1,15 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Meals from "./Components/Meals/Meals";
+import Detailspage from "./Components/Detailspage/details";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createContext, useState } from "react";
+
+export const Appcontextt = createContext();
 
 function App() {
-
+  const [favor, setFavor]= useState('favorites')
+  const client = new QueryClient();
   return (
     <>
-  <h1>hello</h1>
+      <div id="app">
+        <Appcontextt.Provider value={{favor ,setFavor}}>
+          <QueryClientProvider client={client}>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Meals />} />
+                <Route path="/details" element={<Detailspage />} />
+              </Routes>
+            </Router>
+          </QueryClientProvider>
+        </Appcontextt.Provider>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
